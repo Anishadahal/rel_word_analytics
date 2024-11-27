@@ -12,8 +12,7 @@ import Warning from "./Warning";
 //   },
 // ];
 
-export default function TextArea() {
-  const [text, setText] = useState("");
+export default function TextArea({ setText, text }) {
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
