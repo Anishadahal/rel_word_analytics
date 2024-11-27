@@ -1,5 +1,5 @@
-export default function Warning({ showWarning, message }) {
-  if (!showWarning) return null;
+export default function Warning({ message }) {
+  if (message === "") return null;
 
   return <p className="warning">{message}</p>;
 }

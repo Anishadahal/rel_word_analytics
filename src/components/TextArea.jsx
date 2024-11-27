@@ -14,7 +14,6 @@ import Warning from "./Warning";
 
 export default function TextArea() {
   const [text, setText] = useState("");
-  const [showWarning, setShowWarning] = useState(false);
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
@@ -22,15 +21,12 @@ export default function TextArea() {
 
     if (newText.includes("<script>")) {
       setMessage("No script tag allowed.");
-      setShowWarning(true);
       newText = newText.replace("<script>", "");
     } else if (newText.includes("@")) {
       setMessage("No @ symbol allowed.");
-      setShowWarning(true);
       newText = newText.replace("@", "");
     } else {
       setMessage("");
-      setShowWarning(false);
     }
     setText(newText);
   };
@@ -69,7 +65,7 @@ export default function TextArea() {
         rows={12}
         className="textarea"
       />
-      <Warning showWarning={showWarning} message={message} />
+      <Warning message={message} />
     </>
   );
 }
